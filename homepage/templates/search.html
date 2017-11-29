@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+{% if userkeyword %}
+    <h1>Succes : {{ userkeyword }}</h1>
+{% endif %}
+<body>
+{% csrf_token %}
+{% for page in item %}
+{% for item2 in page.searchitem_set.all %}
+    <h1> Product Name : {{ item2.item_name }}  </h1><br>
+    <h2> Product Price : {{ item2.item_price }}  </h2><br>
+    <h2> Product Link : {{ item2.item_link }}  </h2><br>
+{% endfor %}
+{% endfor %}
+
+
+
+
+</body>
+</html>
