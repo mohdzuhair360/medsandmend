@@ -2,17 +2,44 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Meds And Mend</title>
+  <title>Meds And Mend : Your Personal Heatlhcare Companion</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 
       <link rel="stylesheet" href="{% static 'homepage/style_search1.css' %}">
 
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Light, Basic Header</title>
+
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/header-basic-light.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
 
 </head>
 {% block body %}
 <body>
+<header class="header-basic-light">
+
+	<div class="header-limiter">
+
+		<h1><a href="#">Company<span>logo</span></a></h1>
+
+		<nav>
+			<a href="#">Home</a>
+			<a href="#" class="selected">Blog</a>
+			<a href="#">Pricing</a>
+			<a href="#">About</a>
+			<a href="#">Faq</a>
+			<a href="#">Contact</a>
+		</nav>
+	</div>
+
+</header>
   <div align="center">
   <br>
   <br>
@@ -28,6 +55,7 @@
       </form>
   <script src='https://use.edgefonts.net/amaranth.js'>
    </script>
+
 
 
 </body>
