@@ -58,10 +58,11 @@ while userInput != 'exit':
     #f.write(headers)
     cont = page_soup.findAll("li", {"class": "item"})
     for con in cont:
-        productimg = con.a.img
+        #productimg = con.a.img
         #print("URL img : " + productimg)
         containers = page_soup.findAll("div", {"class":"product-info"})
         for container in containers:
+            productimg = con.a.img["src"]
             productname = container.h2.a["title"]
             try:
                 productprice = container.findAll("span", {"class" : "price-incl-tax-new-theme price-incl-tax-special"})
