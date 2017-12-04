@@ -1,95 +1,63 @@
 {% load staticfiles %}
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Meds And Mend : Your Personal Heatlhcare Companion</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
+		<!--<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/header-basic-light.css">
+		<link rel="stylesheet" href="css/product-list-vertical.css">
+		<!--<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Light, Basic Header</title>-->
+	</head>
+	<body>
+		<header class="header-basic-light">
+			<div class="header-limiter">
+				<h1><a href="#">Company<span>logo</span></a></h1>
+				<nav>
+					<a href="#" class="selected">Home</a>
+					<a href="#">About</a>
+					<a href="#">Faq</a>
+					<a href="#">Contact</a>
+				</nav>
+			</div>
+		</header>
+		{% for page in item %}
+		{% for item2 in page.searchitem_set.all %}
+		<br><br><br><br><br>
+		<ul class="product-list-vertical">
+			<li>
+				<a href="#" class="product-photo">
+					<img src="{{ item2.item_image }}" height="160" alt="" />
+				</a>
+				<h2><a href="#">{{ item2.item_name }}</a></h2>
+				<div class="product-rating">
+					<p class="product-price">{{ item2.item_price }}</p>
+					<p class="product-allergy">{{ item2.item_allergy }}</p>
+					<div>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Meds And Mend : Your Personal Heatlhcare Companion</title>
-
-    <link rel="stylesheet" href="{% static 'css/product-list-vertical.css' %}">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Light, Basic Header</title>
-
-	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
-	<link rel="stylesheet" href="{% static 'css/header-basic-light.css' %}">
-	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-
-</head>
-<body>
-
-<header class="header-basic-light">
-
-	<div class="header-limiter">
-
-		<h1><a href="#">Company<span>logo</span></a></h1>
-
-		<nav>
-			<a href="#">Home</a>
-			<a href="#" class="selected">Blog</a>
-			<a href="#">Pricing</a>
-			<a href="#">About</a>
-			<a href="#">Faq</a>
-			<a href="#">Contact</a>
-		</nav>
-	</div>
-
-</header>
-
-{% for page in item %}
-{% for item2 in page.searchitem_set.all %}
-
-
-    <ul class="product-list-vertical">
-
-        <li>
-
-            <a href="#" class="product-photo">
-                <img src="{{ item2.item_image }}" height="160" alt= {{ item2.item_name }} />
-            </a>
-
-
-                <h2><a href="#">{{ item2.item_name }}</a></h2>
-
-
-                <div class="product-rating">
-                    <p class="product-price">{{ item2.item_price }}</p>
-                    <div>
-                        <span class="product-stars" style="width: 60px" >
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                        </span>
-                    </div>
-
-                    <span><a href="#">82 reviews</a></span>
-                </div>
-
-
-                <p class="product-description" a href=" {{ item2.item_link }}">Product Link : </p><a ></a>
-                 <p class="product-description">Quick Overview : <a href=" {{ item2.item_link }}"></a></p>
-                <p class="product-description">Short Description : <a href=" {{ item2.item_link }}"></a></p>
-                 <p class="product-description">Direction Use : <a href=" {{ item2.item_link }}"></a></p>
-                <p class="product-description">Ingredients : <a href=" {{ item2.item_link }}"></a></p>
-                 <p class="product-description">Contra Indication : <a href=" {{ item2.item_link }}"></a></p>
-                <p class="product-description">Caution  : <a href=" {{ item2.item_link }}"></a></p>
-
-
-                <button>Buy Now!</button>
-
-            </div>
-
-        </li>
-    </ul>
-{% endfor %}
-{% endfor %}
-
-</body>
-
+					</div>
+					<span><a href="#"></a></span>
+				</div>
+				<div>
+				<!--<p class="product-description" a href=" {{ item2.item_link }}">Product Link : </p><a ></a>
+				<p class="product-description">Quick Overview : <a href=" {{ item2.item_link }}"></a></p>
+				<p class="product-description">Short Description : <a href=" {{ item2.item_link }}"></a></p>
+				<p class="product-description">Direction Use : <a href=" {{ item2.item_link }}"></a></p>
+				<p class="product-description">Ingredients : <a href=" {{ item2.item_link }}"></a></p>
+				<p class="product-description">Contra Indication : <a href=" {{ item2.item_link }}"></a></p>
+				<p class="product-description">Caution  : <a href=" {{ item2.item_link }}"></a></p>-->
+				<button type ="submit" onclick ="location.href = '{{item2.item_link }}';"><a href ="{{item2.item_link }}"></a> Go to Product's URL </button>
+				</div>
+			</li>
+		</ul>
+	{% endfor %}
+	{% endfor %}
+	</body>
 </html>
