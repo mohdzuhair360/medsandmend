@@ -19,7 +19,7 @@
 	<body background="./image/background1.jpg">
 		<header class="header-basic-light">
 			<div class="header-limiter">
-				<h1><a href="#">Meds<span>And<span>Mend</span></span></a></h1>
+				<h1><a href="{% url 'navigation:index' %}">Meds<span>And<span>Mend</span></span></a></h1>
 				<nav>
 					<!--<a href="#" class="selected">Home</a>-->
 					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
@@ -37,7 +37,9 @@
 			<form id = "mySearch" method="POST" action = "{% url 'navigation:result' %} ">
 				{% csrf_token %}
 				<input class="productbox" placeholder="Type your medicine name..." name="userkeyword"/><br><br><br>
-				<!--<input class="allergybox" placeholder="Do you have any allergy?" name="userallergy"/><br><br><br>-->
+				{% csrf_token %}
+				<input class="allergybox" placeholder="Do you have any allergy?" name="userallergy"/><br><br><br>
+				<input type="submit" name="search" value="search">
 				<!--<button class="searchbutton" type ="submit" value="Search">-->
 			</form>
 		</div>

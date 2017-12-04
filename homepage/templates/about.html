@@ -20,24 +20,9 @@
 					<a href="{% url 'navigation:contact' %}">Contact</a>
 				</nav>
 			</div>
-		</header>
-		{% for page in item %}
-		{% for item2 in page.searchitem_set.all %}
-		<br><br><br><br><br>
-		<ul class="product-list-basic">
-			<li>
-				<a href="#" class="product-photo">
-					<img src="{{ item2.item_image }}" height="130" alt="" />
-				</a>
-				<h2><a href="#">{{ item2.item_name }}</a></h2>
-					<p class="product-price">{{ item2.item_price }}</p>
-					<p class="product-allergy">{{ item2.item_allergy }}</p>
-				<div>
-				<button type ="submit" onclick ="location.href = '{{item2.item_link }}';"> Go to Product's URL </button>
-				</div>
-			</li>
-		</ul>
-	{% endfor %}
-	{% endfor %}
-	</body>
+</header>
+        <br><br><br><br><br>
+<h1>ABOUT</h1>
+
+</body>
 </html>

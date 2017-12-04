@@ -51,8 +51,8 @@ class guardianScrapEngine:
                 all_data = container.find_all('td', class_='data')
 
                # findword = 'eczema'
-                findword = 'muscle'
-                #findword = user_allergy
+                #findword = 'muscle'
+                findword = user_allergy
 
                 for table1 in all_data:
                     s = table1.text
