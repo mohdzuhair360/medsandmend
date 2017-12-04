@@ -19,17 +19,26 @@ def index (request):
 def result (request):
     SearchItem.objects.all().delete()
     product_input = request.POST.get('userkeyword', None)
-    allergy_input = request.POST.get('allergyinput', None)
+    allergy_input = request.POST.get('userallergy', None)
     userkeyword = product_input
-    userallergy = allergy_input
+    user_allergy = allergy_input
     first_url = 'https://guardian.com.my/index.php/'
     a_second_url = 'pbrand/'
     a_third_url = '.html'
     a_concat_url = first_url + a_second_url + userkeyword + a_third_url
     a_my_url = a_concat_url
     scrapGuardianResult = guardian.guardianScrapEngine()
-    scrapGuardianResult.scrapIt(a_my_url, userallergy)
+    scrapGuardianResult.scrapIt(a_my_url, user_allergy)
     page = PageSource.objects.all()
     return render(request, 'search.html', {'item': page, 'userkeyword': userkeyword})
+
+def about(request):
+    return render (request, 'about.html')
+
+def contact():
+    return render (request, 'contact.html')
+
+def faq():
+    return render (request, 'faq.html')
 
 

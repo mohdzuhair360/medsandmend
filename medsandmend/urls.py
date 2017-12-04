@@ -7,9 +7,10 @@ from homepage import views
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
-    url(r'^index.html$', views.index),
+    url(r'^index.html$', views.index, name='index'),
     url(r'^search/', include ('homepage.urls')),
-   # url(r'^homepage/medicine/', include ('homepage.urlmeds')),
-    #url(r'^homepage/supplement/', include ('homepage.urlsupp')),
+    #url(r'^about.html', views.about, name='about'),
+    #url(r'^faq.html', views.faq, name='faq'),
+    #url(r'^contact.html', views.contact, name='contact'),
 
 ]

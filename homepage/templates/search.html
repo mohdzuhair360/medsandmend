@@ -21,39 +21,26 @@
 			<div class="header-limiter">
 				<h1><a href="#">Company<span>logo</span></a></h1>
 				<nav>
-					<a href="#" class="selected">Home</a>
-					<a href="#">About</a>
-					<a href="#">Faq</a>
-					<a href="#">Contact</a>
+					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
+					<a href="{% url 'navigation:about' %}">About</a>
+					<a href="{% url 'navigation:faq' %}">Faq</a>
+					<a href="{% url 'navigation:contact' %}">Contact</a>
 				</nav>
 			</div>
 		</header>
 		{% for page in item %}
 		{% for item2 in page.searchitem_set.all %}
 		<br><br><br><br><br>
-		<ul class="product-list-vertical">
+		<ul class="product-list-basic">
 			<li>
 				<a href="#" class="product-photo">
-					<img src="{{ item2.item_image }}" height="160" alt="" />
+					<img src="{{ item2.item_image }}" height="130" alt="" />
 				</a>
 				<h2><a href="#">{{ item2.item_name }}</a></h2>
-				<div class="product-rating">
 					<p class="product-price">{{ item2.item_price }}</p>
 					<p class="product-allergy">{{ item2.item_allergy }}</p>
-					<div>
-
-					</div>
-					<span><a href="#"></a></span>
-				</div>
 				<div>
-				<!--<p class="product-description" a href=" {{ item2.item_link }}">Product Link : </p><a ></a>
-				<p class="product-description">Quick Overview : <a href=" {{ item2.item_link }}"></a></p>
-				<p class="product-description">Short Description : <a href=" {{ item2.item_link }}"></a></p>
-				<p class="product-description">Direction Use : <a href=" {{ item2.item_link }}"></a></p>
-				<p class="product-description">Ingredients : <a href=" {{ item2.item_link }}"></a></p>
-				<p class="product-description">Contra Indication : <a href=" {{ item2.item_link }}"></a></p>
-				<p class="product-description">Caution  : <a href=" {{ item2.item_link }}"></a></p>-->
-				<button type ="submit" onclick ="location.href = '{{item2.item_link }}';"><a href ="{{item2.item_link }}"></a> Go to Product's URL </button>
+				<button type ="submit" onclick ="location.href = '{{item2.item_link }}';"> Go to Product's URL </button>
 				</div>
 			</li>
 		</ul>

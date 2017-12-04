@@ -34,34 +34,3 @@ class Description (models.Model):
     def __str__(self):
         return self.quick_overview + self.ingredients
 
-
-
-#class Medicine(models.Model):
- #   meds_name = models.CharField(max_length=100)
-  #  meds_price = models.FloatField(max_length=10)
-   # meds_image = models.CharField(max_length=100)
-    ##meds_overview = models.CharField(max_length=1000)
-    #meds_description = models.CharField(max_length=500)
-    #meds_direction = models.CharField(max_length=1000)
-    #meds_ingredient = models.CharField(max_length=1000)
-    #meds_indication = models.CharField(max_length=1000)
-    #meds_caution = models.CharField(max_length=1000)
-
-
-    #def __str__(self):
-     #   return self.meds_name +" "+ str(self.meds_price)
-
-
-#class Supplement (models.Model):
- #   supp_name = models.CharField(max_length=100)
-  #  supp_price = models.FloatField(max_length=10)
-   # supp_image = models.CharField(max_length=100)
-    #supp_overview = models.CharField(max_length=1000)
-    #supp_description = models.CharField(max_length=500)
-    #supp_direction = models.CharField(max_length=1000)
-    #supp_ingredient = models.CharField(max_length=1000)
-    #supp_indication = models.CharField(max_length=1000)
-    #supp_caution = models.CharField(max_length=1000)
-
-    #def __str__(self):
-     #   return self.supp_name +" "+ str(self.supp_price)
