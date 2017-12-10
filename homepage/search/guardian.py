@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as soup
 import requests
 from django.shortcuts import render,get_object_or_404
 from homepage import models
+#from HTMLParser import HTMLParser
 from . import guardianDescription
 import csv
 from datetime import datetime
@@ -12,10 +13,9 @@ class guardianScrapEngine:
 
         my_url = a_my_url
         headers = {'User-Agent': 'Mozilla/5.0'}
+        #try:
         my_page_1 = requests.get(my_url)
         page_soup = soup(my_page_1.text, "html.parser")
-
-
         page = get_object_or_404(models.PageSource, pk=1)
 
         containers = page_soup.findAll("div", {"class": "product-info"})
@@ -85,5 +85,7 @@ class guardianScrapEngine:
                                                              item_image=productimg,
                                                              item_link=producturl,
                                                              item_allergy=allergyresult)
+
+        #except HTMLParser:
 
         return

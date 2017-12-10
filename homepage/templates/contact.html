@@ -1,28 +1,56 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Meds And Mend : Your Personal Heatlhcare Companion</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
+		<link rel="stylesheet" href="{% static 'homepage/main.css' %}">
 	</head>
 	<body>
 		<header class="header-basic-light">
 			<div class="header-limiter">
 				<h1><a href="{% url 'navigation:index' %}">Meds<span>And<span>Mend</span></span></a></h1>
 				<nav>
-					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
+					<a href = "{% url 'navigation:index' %}">Home</a>
 					<a href="{% url 'navigation:about' %}">About</a>
-					<a href="{% url 'navigation:faq' %}">Faq</a>
-					<a href="{% url 'navigation:contact' %}">Contact</a>
+					<a href="{% url 'navigation:contact' %}" class="selected">Contact Us</a>
 				</nav>
 			</div>
-</header>
-        <br><br><br><br><br>
-<h1>Contact</h1>
+		</header>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
 
-</body>
+				<h3>Get in touch</h3>
+
+				<form action="#" method="post">
+
+					<div class="field half first">
+						<label for="name">Name</label>
+						<input name="name" id="name" type="text" placeholder="Name">
+					</div>
+					<div class="field half">
+						<label for="email">Email</label>
+						<input name="email" id="email" type="email" placeholder="Email">
+					</div>
+					<div class="field">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+					</div>
+					<ul class="actions">
+						<li><input value="Send Message" class="button alt" type="submit"></li>
+					</ul>
+				</form>
+
+				<div class="copyright">
+					<p>Copyright &#169; 2017 <a href="{% url 'navigation:index' %}">Meds and Mend</a></p>
+				</div>
+
+			</div>
+		</footer>
+    </body>
 </html>

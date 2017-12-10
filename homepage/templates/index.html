@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en" >
 	<head>
@@ -5,27 +6,23 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Meds And Mend : Your Personal Heatlhcare Companion</title>
+		<!--search box font-->
 		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
+		<!--Logo meds and mend font-->
 		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
-		<!--<link rel="stylesheet" href="css/demo.css">
-		<link rel="stylesheet" href="css/header-basic-light.css">
-		<meta charset="utf-8">
-
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-		<!--<title>Light, Basic Header</title>-->
+		<!--Title Meds and Mend font-->
+		<script src='https://use.edgefonts.net/amaranth.js'></script>
 	</head>
 	<!--{% block body %}-->
-	<body background="./image/background1.jpg">
+	<body background="../static/homepage/image/background1.jpg">
 		<header class="header-basic-light">
 			<div class="header-limiter">
 				<h1><a href="{% url 'navigation:index' %}">Meds<span>And<span>Mend</span></span></a></h1>
 				<nav>
-					<!--<a href="#" class="selected">Home</a>-->
 					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
-					<a href="{% url 'navigation:about' %}">About</a>
-					<a href="{% url 'navigation:faq' %}">Faq</a>
-					<a href="{% url 'navigation:contact' %}">Contact</a>
+					<a href="{% url 'navigation:about' %}">About Us</a>
+					<a href="{% url 'navigation:contact' %}">Contact Us</a>
 				</nav>
 			</div>
 		</header>
@@ -39,11 +36,19 @@
 				<input class="productbox" placeholder="Type your medicine name..." name="userkeyword"/><br><br><br>
 				{% csrf_token %}
 				<input class="allergybox" placeholder="Do you have any allergy?" name="userallergy"/><br><br><br>
-				<input type="submit" name="search" value="search">
-				<!--<button class="searchbutton" type ="submit" value="Search">-->
+				{% csrf_token %}
+				<input class="locationbox" placeholder="Enter your location" name="userlocation"/><br><br><br>
+				<input class="button" type="submit" name="search" value="Search">
 			</form>
 		</div>
-		<script src='https://use.edgefonts.net/amaranth.js'></script>
+
 	</body>
 	<!--{% endblock %}-->
+	<footer>
+		<header class="headerfooter">
+			<div class="footer">
+				<p>Copyright &#169; 2017 Meds and Mend</p>
+			</div>
+		</header>
+	</footer>
 </html>

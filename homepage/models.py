@@ -17,9 +17,18 @@ class SearchItem (models.Model):
     item_image = models.CharField(max_length=300)
     item_link = models.CharField(max_length=300)
     item_allergy = models.CharField(max_length=300)
+    #store_location = models.CharField(max_length=10000)
 
     def __str__(self):
         return self.item_name
+
+class Location (models.Model):
+    location_id = models.AutoField(primary_key=True)
+    page = models.ForeignKey(PageSource, on_delete=models.CASCADE)
+    store_location = models.CharField(max_length=10000)
+
+    def __str__(self):
+        return self.store_location
 
 
 class Description (models.Model):

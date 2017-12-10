@@ -1,28 +1,94 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Meds And Mend : Your Personal Heatlhcare Companion</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
+		<link rel="stylesheet" href="{% static 'homepage/main.css' %}">
 	</head>
 	<body>
 		<header class="header-basic-light">
 			<div class="header-limiter">
 				<h1><a href="{% url 'navigation:index' %}">Meds<span>And<span>Mend</span></span></a></h1>
 				<nav>
-					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
-					<a href="{% url 'navigation:about' %}">About</a>
-					<a href="{% url 'navigation:faq' %}">Faq</a>
-					<a href="{% url 'navigation:contact' %}">Contact</a>
+					<a href="{% url 'navigation:index' %}">Home</a>
+					<a href="{% url 'navigation:about' %}" class="selected">About Us</a>
+					<a href="{% url 'navigation:contact' %}">Contact Us</a>
 				</nav>
 			</div>
-</header>
-        <br><br><br><br><br>
-<h1>ABOUT</h1>
+		</header>
 
-</body>
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Welcome to Meds and Mend</h1>
+					<h2>Your Personal Heatlhcare Companion</h2>
+				</header>
+
+				<div class="flex ">
+
+					<div class="features">
+						<span class="icon fa-car"></span>
+						<h4>Find the product here</h4>
+						<p>Wanted to know more about the product that you intend to buy? Find it here in our website! Did not find anything that you wanted to search? Drop us an email and let we improve our website for you.</p>
+					</div>
+
+					<div class="features">
+						<span class="icon fa-camera"></span>
+						<h4>Get to know which product contains your allergy</h4>
+						<p>Not sure if the product contain any allergy that you have? Let us know your allergy and let we provide you information if the product contain your allergy or not.</p>
+					</div>
+
+					<div class="features">
+						<span class="icon fa-bug"></span>
+						<h4>Locate any store nearest to you</h4>
+						<p>Interested in buying but not sure where is the nearest store around you? Worry not, we provide you the nearest location when you enter state name when you are searching.</p>
+					</div>
+
+				</div>
+
+				<footer>
+					<a href="{% url 'navigation:index' %}" class="button">Get Started</a>
+				</footer>
+			</div>
+		</section>
+
+
+		<!-- Three -->
+		<section id="three" class="wrapper align-center">
+			<div class="inner">
+				<div class="flex flex-2">
+					<article>
+						<div class="image round">
+							<!--<img src="../static/homepage/image/Zuhair.JPG" alt="Gambar zuzu" />-->
+						</div>
+						<header>
+							<h3>Mohd Zuhair Bin Mohd Radzi</h3>
+						</header>
+						<p>Bachelor of Computer Science<br />International Islamic University Malaysia</p>
+						<!--<footer>
+							<a href="#" class="button">Learn More</a>
+						</footer>-->
+					</article>
+					<article>
+						<div class="image round">
+							<img src="../static/homepage/image/Aniss.JPG" alt="Gambar aniss" />
+						</div>
+						<header>
+							<h3>Aniss Tasya Adira Binti Roslee</h3>
+						</header>
+						<p>Bachelor of Computer Science<br />International Islamic University Malaysia</p>
+						<!--<footer>
+							<a href="#" class="button">Learn More</a>
+						</footer>-->
+					</article>
+				</div>
+			</div>
+		</section>
+
+    </body>
 </html>

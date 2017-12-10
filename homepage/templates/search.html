@@ -1,43 +1,57 @@
+<!DOCTYPE html>
 {% load staticfiles %}
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Meds And Mend : Your Personal Heatlhcare Companion</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+		<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 		<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
 	</head>
-	<body>
+	<body style="background-color:	#191970;">
 		<header class="header-basic-light">
 			<div class="header-limiter">
 				<h1><a href="{% url 'navigation:index' %}">Meds<span>And<span>Mend</span></span></a></h1>
 				<nav>
-					<a href = "{% url 'navigation:index' %}" class="selected">Home</a>
-					<a href="{% url 'navigation:about' %}">About</a>
-					<a href="{% url 'navigation:faq' %}">Faq</a>
-					<a href="{% url 'navigation:contact' %}">Contact</a>
+					<a href = "{% url 'navigation:index' %}">Home</a>
+					<a href="{% url 'navigation:about' %}">About Us</a>
+					<a href="{% url 'navigation:contact' %}">Contact Us</a>
 				</nav>
 			</div>
 		</header>
-		{% for page in item %}
-		{% for item2 in page.searchitem_set.all %}
 		<br><br><br><br><br>
-		<ul class="product-list-basic">
-			<li>
-				<a href="#" class="product-photo">
-					<img src="{{ item2.item_image }}" height="130" alt="" />
-				</a>
-				<h2><a href="#">{{ item2.item_name }}</a></h2>
-					<p class="product-price">{{ item2.item_price }}</p>
-					<p class="product-allergy">{{ item2.item_allergy }}</p>
-				<div>
-				<button type ="submit" onclick ="location.href = '{{item2.item_link }}';"> Go to Product's URL </button>
-				</div>
-			</li>
-		</ul>
-	{% endfor %}
-	{% endfor %}
+		<!--<button class="again" type ="submit" href ="{% url 'navigation:index' %}';">Search more</button>-->
+		<div class="container">
+			<div class="floatleft">
+				{% for page in item %}
+					{% for item2 in page.searchitem_set.all %}
+							<ul class="product-list-basic">
+								<li>
+									<a class="product-photo"><img src="{{ item2.item_image }}" height="200" alt="" /></a>
+									<p class="product-name">{{ item2.item_name }}</p>
+									<p class="product-allergy">{{ item2.item_allergy }}</p>
+									<p class="product-price">{{ item2.item_price }}</p>
+
+									<button type ="submit" onclick ="location.href = '{{item2.item_link }}';">View more</button>
+								</li>
+							</ul>
+						<br>
+					{% endfor %}
+				{% endfor %}
+			</div>
+
+			<div id = "map" class="floatright">
+				<!--<iframe frameborder="0" style="border:0"
+						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD03Z8_JUTuBemqY6rrPZTOl2xXtsGVHjc=Space+Needle,Seattle+WA" allowfullscreen>
+
+				</iframe>-->
+				<!--<input class="button" type="submit" name="search" value="Search"><!--class="store-location"-->
+				<a href = "{{resultLocation}}" class="button" name="search" onclick="window.open = '{{resultLocation}}'" target="_blank">Click to see nearest store </a>
+
+			</div>
+		</div>
 	</body>
+	<br><br><br>
 </html>
