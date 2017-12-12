@@ -33,7 +33,7 @@
 				<br><br><br>
 
 				<form id = "mySearch" method="POST" action = "{% url 'navigation:result' %} ">
-					<!--<p>**All fields are compulsory**</p>-->
+					<p>**Please enter input for every box**</p>
 					{% csrf_token %}
 					<input class="productbox" placeholder="Type your medicine name..." name="userkeyword"/><br><br><br>
 					{% csrf_token %}

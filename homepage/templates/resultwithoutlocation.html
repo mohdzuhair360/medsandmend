@@ -24,8 +24,9 @@
 		<br><br><br><br><br>
 		<!--<button class="again" type ="submit" href ="{% url 'navigation:index' %}';">Search more</button>-->
 		<div align="center">
-			<a href = "{{resultLocation}}" class="buttonmap" name="search" onclick="window.open = '{{resultLocation}}'"
-				target="_blank">Click to see nearest store </a>
+			<div class="nolocation">
+			    <p>Opss! Your entered location cannot be found.</p>
+            </div>
 			<br><br>
 		</div>
 

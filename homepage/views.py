@@ -17,6 +17,9 @@ def index (request):
     SearchItem.objects.all().delete()
     page = SearchItem.objects.all()
     return render(request, 'index.html', {'page' : page})
+    #return render(request, 'mapsTest.html', {'page' : page})
+    #return render(request, 'mapsTestSearch.html', {'page': page})
+    #return render(request, 'mapsTestSearch2.html', {'page': page})
 
 def result (request):
     SearchItem.objects.all().delete()
@@ -25,30 +28,47 @@ def result (request):
     maps_input = request.POST.get('userlocation', None)
 
     userkeyword = product_input
+    #if userkeyword == "":
+    #    return render(request, 'noproduct.html')
     user_allergy = allergy_input
+   # if user_allergy == "":
+    #    return render(request, 'index.html')
+    #if user_allergy == " ":
+    #    return render(request, 'index.html', {'page': page})
     user_location = maps_input
+    #if user_location == "":
+    #    return render(request, 'resultwithoutlocation.html')
+    #if user_location == " ":
+    #    return render(request, 'index.html', {'page': page})
 
-    first_url = 'https://guardian.com.my/index.php/'
-    a_second_url = 'pbrand/'
-    a_third_url = '.html'
-    a_concat_url = first_url + a_second_url + userkeyword + a_third_url
-    a_my_url = a_concat_url
-    scrapGuardianResult = guardian.guardianScrapEngine()
-    scrapGuardianResult.scrapIt(a_my_url, user_allergy)
-    scrapGuardianLocation = googleMaps.guardianMapsEngine()
-    resultLocation = scrapGuardianLocation.locateIt(user_location)
+    if userkeyword == "" and user_location == "" and user_allergy =="":
+        return render(request, 'noinput.html')
 
-    #driver = webdriver.Firefox()
-    #driver.get(resultLocation)
+    if userkeyword == "" or user_location == "" or user_allergy =="":
+        return render(request, 'noinput.html')
 
-    # open tab
-   # driver.find_element_by_tag_name('body').send_keys(Keys.COMMAND + 't')
+    try:
+        first_url = 'https://guardian.com.my/index.php/'
+        a_second_url = 'pbrand/'
+        a_third_url = '.html'
+        a_concat_url = first_url + a_second_url + userkeyword + a_third_url
+        a_my_url = a_concat_url
+        scrapGuardianResult = guardian.guardianScrapEngine()
+        resultScrap = scrapGuardianResult.scrapIt(a_my_url, user_allergy, request)
+        print("Result Scrap : " + str(resultScrap))
 
-    # Load a page
-    #driver.get(resultLocation)
-    # Make the tests...
+        if resultScrap =="" or str(resultScrap)=="None":
+            return render(request, 'noproduct.html')
+
+        scrapGuardianLocation = googleMaps.guardianMapsEngine()
+        resultLocation = scrapGuardianLocation.locateIt(user_location)
+
+    except Exception as e:
+       print("Wrong input. " + str(e))
+       return render(request, 'nolocation.html')
 
     print ("Result location : " + str(resultLocation))
+    print("user keyword = " + userkeyword)
 
     page = PageSource.objects.all()
     return render(request, 'search.html', {'item': page, 'userkeyword': userkeyword, 'resultLocation': resultLocation})
@@ -59,7 +79,8 @@ def about(request):
 def contact(request):
     return render (request, 'contact.html')
 
-def faq(request):
-    return render (request, 'faq.html')
+def noproduct(request):
+    return render (request, 'noproduct.html')
+
 
 
