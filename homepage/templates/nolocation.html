@@ -30,10 +30,10 @@
 		<div align="left">
 			<br><br><br><br><br>
 			<div class="text">Meds And Mend</div>
-				<br><br><br>
+				<br>
 
 				<form id = "mySearch" method="POST" action = "{% url 'navigation:result' %} ">
-					<p>**Please enter a correct product/location name**</p>
+					<p>**No location found. Try again**</p>
 					{% csrf_token %}
 					<input class="productbox" placeholder="Type your medicine name..." name="userkeyword"/><br><br><br>
 					{% csrf_token %}

@@ -18,9 +18,9 @@ class guardianScrapEngine:
         my_page_1 = requests.get(my_url)
         print("MY PAGE : " + str(my_page_1))
 
-        if str(my_page_1)== "<Response [404]>":
-            print("YES")
-            return
+        #if str(my_page_1)== "<Response [404]>":
+         #   print("YES")
+          #  return
 
         #try:
         page_soup = soup(my_page_1.text, "html.parser")
@@ -78,7 +78,7 @@ class guardianScrapEngine:
                             # print("This product is free from your allergy.")
 
                     if x == 1:
-                        allergyresult = "This product has " + findword
+                        allergyresult = "This product has the '" + findword + "' allergy and not suitable for you to use"
                         print("This product has " + findword)
 
 

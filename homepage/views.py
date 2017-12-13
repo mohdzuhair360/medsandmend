@@ -54,14 +54,16 @@ def result (request):
         a_concat_url = first_url + a_second_url + userkeyword + a_third_url
         a_my_url = a_concat_url
         scrapGuardianResult = guardian.guardianScrapEngine()
-        resultScrap = scrapGuardianResult.scrapIt(a_my_url, user_allergy, request)
+        scrapGuardianResult.scrapIt(a_my_url, user_allergy, request)
+        resultScrap = SearchItem.objects.all()
         print("Result Scrap : " + str(resultScrap))
-
-        if resultScrap =="" or str(resultScrap)=="None":
-            return render(request, 'noproduct.html')
 
         scrapGuardianLocation = googleMaps.guardianMapsEngine()
         resultLocation = scrapGuardianLocation.locateIt(user_location)
+
+        if resultScrap == "" or str(resultScrap) == "<QuerySet []>":
+            print("Result Scrap : " + str(resultScrap))
+            return render(request, 'noproduct.html')
 
     except Exception as e:
        print("Wrong input. " + str(e))
